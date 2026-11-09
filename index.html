@@ -1,427 +1,182 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Pramod ❤️ Dr. Tejashwini | Wedding Invitation</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3d2721">
+  <title>Pramod ❤️ Dr. Tejashwini | Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
+  <div id="flowerContainer" aria-hidden="true"></div>
 
-    <!-- FLOWER PETAL EFFECT -->
-    <div id="flowerContainer"></div>
+  <!-- CINEMATIC OPENING -->
+  <div class="opening-screen" id="openingScreen">
+    <div class="opening-glow"></div>
+    <div class="floating-particle particle-1">✦</div>
+    <div class="floating-particle particle-2">·</div>
+    <div class="floating-particle particle-3">✧</div>
+    <div class="floating-particle particle-4">·</div>
+    <div class="floating-particle particle-5">✦</div>
 
-    <!-- CINEMATIC OPENING SCREEN -->
-
-    <div class="opening-screen" id="openingScreen">
-
-        <div class="opening-glow"></div>
-
-        <div class="floating-particle particle-1">✦</div>
-        <div class="floating-particle particle-2">·</div>
-        <div class="floating-particle particle-3">✧</div>
-        <div class="floating-particle particle-4">·</div>
-        <div class="floating-particle particle-5">✦</div>
-
-        <div class="opening-frame">
-
-            <div class="opening-decoration">✦</div>
-
-            <p class="opening-small">
-                TOGETHER WITH THEIR FAMILIES
-            </p>
-
-            <p class="opening-title">
-                THE WEDDING OF
-            </p>
-
-            <h1>
-                <span class="name">Pramod</span>
-                <span class="ampersand">&</span>
-                <span class="name">Dr. Tejashwini</span>
-            </h1>
-
-            <div class="opening-line"></div>
-
-            <p class="opening-date">
-                20 · 11 · 2026
-            </p>
-
-            <p class="opening-location">
-                SHRI ANJANAYA SAMUDAYA BAVANA · KUNDUR
-            </p>
-
-            <p class="opening-small">
-                RECEPTION · 19 NOVEMBER 2026
-            </p>
-
-            <button class="open-btn" onclick="openInvitation()">
-                <span>OPEN INVITATION</span>
-                <span class="button-heart">♡</span>
-            </button>
-
-            <p class="tap-text">
-                Tap to begin our story
-            </p>
-
-        </div>
-
+    <div class="opening-frame">
+      <div class="opening-decoration">✦</div>
+      <p class="opening-small">TOGETHER WITH THEIR FAMILIES</p>
+      <p class="opening-title">THE WEDDING OF</p>
+      <h1>
+        <span class="name">Pramod</span>
+        <span class="ampersand">&</span>
+        <span class="name">Dr. Tejashwini</span>
+      </h1>
+      <div class="opening-line"></div>
+      <p class="opening-date">20 · 11 · 2026</p>
+      <p class="opening-location">SHRI ANJANAYA SAMUDAYA BAVANA · KUNDUR</p>
+      <p class="opening-small reception-opening">RECEPTION · 19 NOVEMBER 2026</p>
+      <button class="open-btn" type="button" onclick="openInvitation()">
+        <span>OPEN INVITATION</span><span class="button-heart">♡</span>
+      </button>
+      <p class="tap-text">Tap to begin our story</p>
     </div>
-
-
-    <!-- MAIN WEBSITE -->
-
-    <main id="mainWebsite">
-
-        <!-- HERO -->
-
-        <section class="hero">
-
-            <div class="hero-overlay"></div>
-
-            <div class="hero-content">
-
-                <p class="small-text">
-                    TOGETHER WITH THEIR FAMILIES
-                </p>
-
-                <h1>
-                    Pramod
-                    <span>&</span>
-                    Dr. Tejashwini
-                </h1>
-
-                <p class="invite-text">
-                    Request the pleasure of your presence
-                    as we begin our beautiful journey together.
-                </p>
-
-                <div class="divider">✦</div>
-
-                <p class="wedding-date">
-                    20 · 11 · 2026
-                </p>
-
-                <p class="venue">
-                    SHRI ANJANAYA SAMUDAYA BAVANA · KUNDUR
-                </p>
-
-                <p class="small-text">
-                    RECEPTION · 19 NOVEMBER 2026
-                </p>
-
-                <a href="#details" class="discover-btn">
-                    DISCOVER OUR DAY
-                    <span>↓</span>
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- COUNTDOWN -->
-
-        <section class="countdown-section">
-
-            <p class="section-label">
-                THE COUNTDOWN BEGINS
-            </p>
-
-            <h2>
-                Until We Say
-                <em>I Do</em>
-            </h2>
-
-            <div class="countdown">
-
-                <div class="time-box">
-                    <span id="days">00</span>
-                    <small>DAYS</small>
-                </div>
-
-                <div class="time-box">
-                    <span id="hours">00</span>
-                    <small>HOURS</small>
-                </div>
-
-                <div class="time-box">
-                    <span id="minutes">00</span>
-                    <small>MINUTES</small>
-                </div>
-
-                <div class="time-box">
-                    <span id="seconds">00</span>
-                    <small>SECONDS</small>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- INVITATION -->
-
-        <section class="invitation">
-
-            <div class="invitation-content">
-
-                <p class="section-label">
-                    WITH LOVE
-                </p>
-
-                <h2>
-                    Two Hearts.
-                    <br>
-                    One Beautiful Beginning.
-                </h2>
-
-                <p>
-                    With hearts full of joy and gratitude,
-                    we invite you to celebrate the wedding of
-                    Pramod and Dr. Tejashwini.
-                </p>
-
-                <p>
-                    Join us for our reception on 19 November
-                    and wedding ceremony on 20 November 2026.
-                </p>
-
-                <p>
-                    Your presence and blessings will make
-                    these beautiful occasions even more special.
-                </p>
-
-                <div class="ornament">❦</div>
-
-            </div>
-
-        </section>
-
-
-        <!-- WEDDING DETAILS -->
-
-        <section class="details" id="details">
-
-            <p class="section-label">
-                SAVE THE DATE
-            </p>
-
-            <h2>
-                Our Special Days
-            </h2>
-
-            <div class="details-grid">
-
-                <!-- RECEPTION -->
-
-                <div class="detail-card">
-
-                    <div class="detail-icon">♡</div>
-
-                    <h3>RECEPTION</h3>
-
-                    <p>
-                        Thursday
-                    </p>
-
-                    <strong>
-                        19 November 2026
-                    </strong>
-
-                    <p class="calendar-hint">
-                        An evening of celebration ♡
-                    </p>
-
-                </div>
-
-
-                <!-- WEDDING DATE -->
-
-                <a
-                    class="detail-card"
-                    href="https://calendar.app.google/Pd3PJx6Rg2JYMNFj9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="text-decoration:none; color:inherit;"
-                >
-
-                    <div class="detail-icon">♡</div>
-
-                    <h3>WEDDING DAY</h3>
-
-                    <p>
-                        Friday
-                    </p>
-
-                    <strong>
-                        20 November 2026
-                    </strong>
-
-                    <p class="calendar-hint">
-                        Tap to save the date ♡
-                    </p>
-
-                </a>
-
-
-                <!-- MUHURTHAM -->
-
-                <div class="detail-card">
-
-                    <div class="detail-icon">✦</div>
-
-                    <h3>MUHURTHAM</h3>
-
-                    <p>
-                        Wedding Ceremony
-                    </p>
-
-                    <strong>
-                        8:45 AM – 10:00 AM
-                    </strong>
-
-                </div>
-
-
-                <!-- VENUE -->
-
-                <a
-                    href="https://maps.app.goo.gl/vNevb6hMERXEPU2D8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="detail-card venue-card"
-                    style="text-decoration:none; color:inherit;"
-                >
-
-                    <div class="detail-icon">⌖</div>
-
-                    <h3>VENUE</h3>
-
-                    <p>
-                        SHRI ANJANAYA SAMUDAYA BAVANA
-                    </p>
-
-                    <strong>
-                        KUNDUR
-                    </strong>
-
-                    <span class="map-hint">
-                        TAP TO OPEN MAP ↗
-                    </span>
-
-                </a>
-
-            </div>
-
-            <a class="photo-booth-jump" href="#photoBooth">
-                VIEW OUR PHOTO BOOTH ↓
-            </a>
-
-        </section>
-
-
-        <!-- PHOTO BOOTH -->
-
-        <section class="photo-booth-section" id="photoBooth">
-
-            <p class="section-label">
-                A LITTLE LOOK AT OUR STORY
-            </p>
-
-            <h2>Our Photo Booth</h2>
-
-            <p class="photo-booth-intro">
-                A few favourite moments, saved with love.
-                Leave a heart on the photos you love most.
-            </p>
-
-            <div
-                class="photo-booth-grid"
-                id="photoBoothGrid"
-                aria-live="polite"
-            >
-                <p class="photo-booth-status">
-                    Loading our favourite moments…
-                </p>
-            </div>
-
-            <p
-                class="photo-booth-note"
-                id="photoBoothStatus"
-                role="status"
-            >
-                Likes are shared with everyone when the gallery is connected.
-            </p>
-
-        </section>
-
-
-        <!-- CLOSING -->
-
-        <section class="closing">
-
-            <div class="closing-content">
-
-                <p>
-                    We can't wait to celebrate
-                    these beautiful occasions with you.
-                </p>
-
-                <h2>
-                    Pramod
-                    <span>♥</span>
-                    Dr. Tejashwini
-                </h2>
-
-                <p class="closing-date">
-                    19 & 20 · 11 · 2026
-                </p>
-
-                <p>
-                    RECEPTION & WEDDING
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- FOOTER -->
-
-        <footer>
-
-            <p>
-                Made with ♥ by Pramod
-            </p>
-
-        </footer>
-
-    </main>
-
-
-    <!-- MUSIC CONTROL -->
-
-    <button
-        class="music-control"
-        id="musicControl"
-        onclick="toggleMusic()"
-        aria-label="Toggle wedding music"
-    >
-        <span id="musicIcon">♫</span>
-    </button>
-
-
-    <script src="script.js"></script>
-
+  </div>
+
+  <main id="mainWebsite">
+    <!-- PAGE 1: HERO -->
+    <section class="hero page-section" id="hero" data-page="01">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="small-text">TOGETHER WITH THEIR FAMILIES</p>
+        <h1>Pramod <span>&</span> Dr. Tejashwini</h1>
+        <p class="invite-text">Request the pleasure of your presence as we begin our beautiful journey together.</p>
+        <div class="divider">✦</div>
+        <p class="wedding-date">20 · 11 · 2026</p>
+        <p class="venue">SHRI ANJANAYA SAMUDAYA BAVANA · KUNDUR</p>
+        <p class="hero-reception">RECEPTION · 19 NOVEMBER 2026</p>
+        <a href="#countdown" class="discover-btn page-link">DISCOVER OUR DAY <span>↓</span></a>
+      </div>
+    </section>
+
+    <!-- PAGE 2: COUNTDOWN -->
+    <section class="countdown-section page-section" id="countdown" data-page="02">
+      <div class="page-inner">
+        <p class="section-label">THE COUNTDOWN BEGINS</p>
+        <h2>Until We Say <em>I Do</em></h2>
+        <p class="page-description">Counting every moment until our wedding day.</p>
+        <div class="countdown">
+          <div class="time-box"><span id="days">00</span><small>DAYS</small></div>
+          <div class="time-box"><span id="hours">00</span><small>HOURS</small></div>
+          <div class="time-box"><span id="minutes">00</span><small>MINUTES</small></div>
+          <div class="time-box"><span id="seconds">00</span><small>SECONDS</small></div>
+        </div>
+        <p class="countdown-target">20 NOVEMBER 2026 · 8:45 AM</p>
+      </div>
+    </section>
+
+    <!-- PAGE 3: INVITATION -->
+    <section class="invitation page-section" id="invitation" data-page="03">
+      <div class="invitation-content page-inner">
+        <p class="section-label">WITH LOVE</p>
+        <h2>Two Hearts.<br>One Beautiful Beginning.</h2>
+        <p>With hearts full of joy and gratitude, we invite you to celebrate the wedding of Pramod and Dr. Tejashwini.</p>
+        <p>Join us for our reception on 19 November and wedding ceremony on 20 November 2026.</p>
+        <p>Your presence and blessings will make these beautiful occasions even more special.</p>
+        <div class="ornament">❦</div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: EVENT DETAILS -->
+    <section class="details page-section" id="details" data-page="04">
+      <div class="page-inner details-inner">
+        <p class="section-label">SAVE THE DATE</p>
+        <h2>Our Special Days</h2>
+        <div class="details-grid">
+          <article class="detail-card">
+            <div class="detail-icon">♡</div>
+            <h3>RECEPTION</h3>
+            <p>Thursday</p>
+            <strong>19 November 2026</strong>
+            <p class="calendar-hint">An evening of celebration</p>
+            <p class="event-time-note">Time to be announced</p>
+          </article>
+
+          <a class="detail-card calendar-card" href="https://calendar.app.google/Pd3PJx6Rg2JYMNFj9" target="_blank" rel="noopener noreferrer">
+            <div class="detail-icon">♡</div>
+            <h3>WEDDING DAY</h3>
+            <p>Friday</p>
+            <strong>20 November 2026</strong>
+            <p class="calendar-hint">Tap to save the date ♡</p>
+          </a>
+
+          <article class="detail-card">
+            <div class="detail-icon">✦</div>
+            <h3>MUHURTHAM</h3>
+            <p>Wedding Ceremony</p>
+            <strong>8:45 AM – 10:00 AM</strong>
+          </article>
+
+          <a href="https://maps.app.goo.gl/vNevb6hMERXEPU2D8" target="_blank" rel="noopener noreferrer" class="detail-card venue-card">
+            <div class="detail-icon">⌖</div>
+            <h3>VENUE</h3>
+            <p>SHRI ANJANAYA SAMUDAYA BAVANA</p>
+            <strong>KUNDUR</strong>
+            <span class="map-hint">TAP TO OPEN MAP ↗</span>
+          </a>
+        </div>
+        <p class="details-footnote">Reception: 19 November 2026 · Wedding: 20 November 2026</p>
+      </div>
+    </section>
+
+    <!-- PAGE 5: PHOTO BOOTH -->
+    <section class="photo-booth-section page-section" id="photoBooth" data-page="05">
+      <div class="page-inner">
+        <p class="section-label">A LITTLE LOOK AT OUR STORY</p>
+        <h2>Our Photo Booth</h2>
+        <p class="photo-booth-intro">A few favourite moments, saved with love. Leave a heart on the photos you love most.</p>
+        <div class="photo-booth-grid" id="photoBoothGrid" aria-live="polite">
+          <p class="photo-booth-status">Loading our favourite moments…</p>
+        </div>
+        <p class="photo-booth-note" id="photoBoothStatus" role="status">Likes are shared with everyone when the gallery is connected.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 6: CLOSING -->
+    <section class="closing page-section" id="closing" data-page="06">
+      <div class="closing-content page-inner">
+        <p>We can't wait to celebrate these beautiful occasions with you.</p>
+        <h2>Pramod <span>♥</span> Dr. Tejashwini</h2>
+        <p class="closing-date">19 &amp; 20 · 11 · 2026</p>
+        <p class="closing-event-label">RECEPTION &amp; WEDDING</p>
+        <a href="#hero" class="back-to-start page-link">BACK TO THE BEGINNING ↑</a>
+      </div>
+    </section>
+
+    <footer><p>Made with ♥ by Pramod</p></footer>
+  </main>
+
+  <!-- PAGE-BY-PAGE NAVIGATION -->
+  <nav class="page-navigation" id="pageNavigation" aria-label="Page navigation">
+    <div class="page-nav-title">OUR STORY</div>
+    <div class="page-nav-dots">
+      <button class="page-dot active" type="button" data-page-index="0" aria-label="Page 1: Home" title="Home"></button>
+      <button class="page-dot" type="button" data-page-index="1" aria-label="Page 2: Countdown" title="Countdown"></button>
+      <button class="page-dot" type="button" data-page-index="2" aria-label="Page 3: Invitation" title="Invitation"></button>
+      <button class="page-dot" type="button" data-page-index="3" aria-label="Page 4: Details" title="Details"></button>
+      <button class="page-dot" type="button" data-page-index="4" aria-label="Page 5: Photo booth" title="Photo booth"></button>
+      <button class="page-dot" type="button" data-page-index="5" aria-label="Page 6: Closing" title="Closing"></button>
+    </div>
+    <div class="page-nav-counter"><span id="currentPage">01</span><span class="counter-divider">/</span>06</div>
+    <div class="page-nav-arrows">
+      <button id="previousPage" type="button" aria-label="Previous page" title="Previous page">↑</button>
+      <button id="nextPage" type="button" aria-label="Next page" title="Next page">↓</button>
+    </div>
+  </nav>
+
+  <button class="music-control" id="musicControl" type="button" onclick="toggleMusic()" aria-label="Toggle wedding music">
+    <span id="musicIcon">♫</span>
+  </button>
+
+  <script src="script.js"></script>
 </body>
 </html>
