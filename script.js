@@ -100,7 +100,7 @@ function toggleMusic() {
 function updateCountdown() {
 
     const weddingDate =
-        new Date(Date.UTC(2026, 10, 20, 3, 15, 0)).getTime(); // 20 Nov 2026, 8:45 AM IST
+        Date.UTC(2026, 10, 20, 3, 15, 0); // 20 Nov 2026, 8:45 AM IST
 
     const now =
         new Date().getTime();
@@ -354,17 +354,163 @@ async function handlePhotoLike(photoId, button) {
 
 if (photoBoothGrid) { renderPhotoBooth(); loadSharedPhotoLikes(); }
 
+
+
+/* =========================================
+   PAGE-BY-PAGE NAVIGATION
+   Buttons, dots, keyboard and scroll tracking
+========================================= */
+
+(() => {
+    const pageIds = [
+        "hero",
+        "countdown",
+        "invitation",
+        "details",
+        "photoBooth",
+        "closing"
+    ];
+
+    const pages = pageIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+    const nav = document.getElementById("pageNavigation");
+    const dots = Array.from(document.querySelectorAll(".page-dot"));
+    const currentPageLabel = document.getElementById("currentPage");
+    const previousButton = document.getElementById("previousPage");
+    const nextButton = document.getElementById("nextPage");
+
+    let currentIndex = 0;
+    let scrollLock = false;
+    let lockTimer;
+
+    function setActivePage(index) {
+        currentIndex = Math.max(0, Math.min(index, pages.length - 1));
+
+        dots.forEach((dot, dotIndex) => {
+            const active = dotIndex === currentIndex;
+            dot.classList.toggle("active", active);
+            if (active) {
+                dot.setAttribute("aria-current", "page");
+            } else {
+                dot.removeAttribute("aria-current");
+            }
+        });
+
+        if (currentPageLabel) {
+            currentPageLabel.textContent = String(currentIndex + 1).padStart(2, "0");
+        }
+
+        if (previousButton) previousButton.disabled = currentIndex === 0;
+        if (nextButton) nextButton.disabled = currentIndex === pages.length - 1;
+    }
+
+    function goToPage(index) {
+        const safeIndex = Math.max(0, Math.min(index, pages.length - 1));
+        const target = pages[safeIndex];
+        if (!target) return;
+
+        setActivePage(safeIndex);
+        scrollLock = true;
+        window.clearTimeout(lockTimer);
+
+        target.scrollIntoView({
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+            block: "start"
+        });
+
+        lockTimer = window.setTimeout(() => {
+            scrollLock = false;
+        }, 850);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => goToPage(index));
+    });
+
+    previousButton?.addEventListener("click", () => goToPage(currentIndex - 1));
+    nextButton?.addEventListener("click", () => goToPage(currentIndex + 1));
+
+    const observer = new IntersectionObserver(entries => {
+        const best = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (best && !scrollLock) {
+            const index = pages.indexOf(best.target);
+            if (index >= 0) setActivePage(index);
+        }
+    }, {
+        threshold: [0.2, 0.4, 0.6],
+        rootMargin: "-8% 0px -8% 0px"
+    });
+
+    pages.forEach(page => observer.observe(page));
+
+    // Keyboard navigation: arrows and PageUp/PageDown move exactly one section.
+    document.addEventListener("keydown", event => {
+        if (event.altKey || event.ctrlKey || event.metaKey) return;
+        if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
+
+        if (event.key === "PageDown" || event.key === "ArrowDown") {
+            event.preventDefault();
+            goToPage(currentIndex + 1);
+        } else if (event.key === "PageUp" || event.key === "ArrowUp") {
+            event.preventDefault();
+            goToPage(currentIndex - 1);
+        } else if (event.key === "Home") {
+            event.preventDefault();
+            goToPage(0);
+        } else if (event.key === "End") {
+            event.preventDefault();
+            goToPage(pages.length - 1);
+        }
+    });
+
+    // Reveal page navigation after the opening cover is dismissed.
+    window.showPageNavigation = function() {
+        document.body.classList.add("navigation-visible");
+        setActivePage(0);
+    };
+
+    setActivePage(0);
+
+    // Links within the invitation also use the page-by-page navigation.
+    document.querySelectorAll('a.page-link[href^="#"]').forEach(link => {
+        link.addEventListener("click", event => {
+            const id = link.getAttribute("href").slice(1);
+            const index = pageIds.indexOf(id);
+            if (index >= 0) {
+                event.preventDefault();
+                goToPage(index);
+            }
+        });
+    });
+})();
+
+/* =========================================
+   OPENING SCREEN NAVIGATION REVEAL
+========================================= */
+
+const originalOpenInvitationForNavigation = openInvitation;
+openInvitation = function() {
+    originalOpenInvitationForNavigation();
+    window.setTimeout(() => {
+        if (typeof window.showPageNavigation === "function") {
+            window.showPageNavigation();
+        }
+    }, 650);
+};
+
 /* Stop wedding music when opening Maps or Calendar */
-
-document.addEventListener("click", function (event) {
+document.addEventListener("click", function(event) {
     const link = event.target.closest("a[href]");
-
     if (!link) return;
 
     const url = link.href;
-
-    const isMapsLink = (url.includes("google.com/maps") || url.includes("maps.app.goo.gl"));
-    const isCalendarLink = (url.includes("calendar.google.com") || url.includes("calendar.app.google"));
+    const isMapsLink = url.includes("google.com/maps") || url.includes("maps.app.goo.gl");
+    const isCalendarLink = url.includes("calendar.google.com") || url.includes("calendar.app.google");
 
     if (isMapsLink || isCalendarLink) {
         weddingMusic.pause();
@@ -373,12 +519,7 @@ document.addEventListener("click", function (event) {
         const musicControl = document.getElementById("musicControl");
         const musicIcon = document.getElementById("musicIcon");
 
-        if (musicControl) {
-            musicControl.classList.remove("playing");
-        }
-
-        if (musicIcon) {
-            musicIcon.innerHTML = "🔇";
-        }
+        musicControl?.classList.remove("playing");
+        if (musicIcon) musicIcon.textContent = "🔇";
     }
 });
