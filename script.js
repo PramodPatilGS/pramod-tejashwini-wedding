@@ -100,7 +100,7 @@ function toggleMusic() {
 function updateCountdown() {
 
     const weddingDate =
-        new Date("November 15, 2026 11:30:00").getTime();
+        new Date(Date.UTC(2026, 10, 20, 3, 15, 0)).getTime(); // 20 Nov 2026, 8:45 AM IST
 
     const now =
         new Date().getTime();
@@ -256,12 +256,12 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_NltaR-Wnxae7cvU5GjsdJg_9j_YPHJa
 
 const photoBoothPhotos = Array.from({ length: 10 }, (_, index) => {
     const number = String(index + 1).padStart(2, "0");
-    return { id: `photo-${number}`, src: `photos/photo-${number}.jpg`, alt: `Vyshna and Mahesh wedding photo ${index + 1}`, caption: `Moment ${number}` };
+    return { id: `photo-${number}`, src: `photos/photo-${number}.jpg`, alt: `Pramod and Dr. Tejashwini wedding photo ${index + 1}`, caption: `Moment ${number}` };
 });
 
 const photoBoothGrid = document.getElementById("photoBoothGrid");
 const photoBoothStatus = document.getElementById("photoBoothStatus");
-const likedPhotosStorageKey = "vyshna-mahesh-photo-likes-v1";
+const likedPhotosStorageKey = "pramod-tejashwini-photo-likes-v1";
 
 function getLocallyLikedPhotos() {
     try { return JSON.parse(localStorage.getItem(likedPhotosStorageKey) || "[]"); }
@@ -363,8 +363,8 @@ document.addEventListener("click", function (event) {
 
     const url = link.href;
 
-    const isMapsLink = url.includes("google.com/maps");
-    const isCalendarLink = url.includes("calendar.google.com");
+    const isMapsLink = (url.includes("google.com/maps") || url.includes("maps.app.goo.gl"));
+    const isCalendarLink = (url.includes("calendar.google.com") || url.includes("calendar.app.google"));
 
     if (isMapsLink || isCalendarLink) {
         weddingMusic.pause();
