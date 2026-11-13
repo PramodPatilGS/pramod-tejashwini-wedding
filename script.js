@@ -259,6 +259,7 @@ const photoBoothPhotos = Array.from({ length: 6 }, (_, index) => {
     return { id: `photo-${number}`, src: `photos/photo-${number}.jpg`, alt: `Pramod and Dr. Tejashwini wedding photo ${index + 1}`, caption: `Moment ${number}` };
 });
 
+
 const photoBoothGrid = document.getElementById("photoBoothGrid");
 const photoBoothStatus = document.getElementById("photoBoothStatus");
 const likedPhotosStorageKey = "pramod-tejashwini-photo-likes-v1";
