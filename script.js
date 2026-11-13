@@ -254,7 +254,7 @@ const SUPABASE_URL = "https://nugjcurxsxojiufcihnd.supabase.co";
 // Paste your Supabase publishable key between the quotes below.
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_NltaR-Wnxae7cvU5GjsdJg_9j_YPHJa";
 
-const photoBoothPhotos = Array.from({ length: 10 }, (_, index) => {
+const photoBoothPhotos = Array.from({ length: 6 }, (_, index) => {
     const number = String(index + 1).padStart(2, "0");
     return { id: `photo-${number}`, src: `photos/photo-${number}.jpg`, alt: `Pramod and Dr. Tejashwini wedding photo ${index + 1}`, caption: `Moment ${number}` };
 });
